@@ -12,14 +12,17 @@ jobs:
     steps:
       - name: Check out the code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Fetch main
         run: |
           git remote -v
           git fetch --depth=1 origin main
       - name: Update references
         run: |
-          sed -r -i 's/(ref=.*)/ref="${{ github.sha }}"/g' `grep 'ref=' -rl *`
+          sed -r -i 's/(ref=.*)/ref=${{ github.event.pull_request.head.sha }}/g' `grep 'ref=' -rl *`
           git config --global user.email "nsmbot@networkservicmesh.io"
           git config --global user.name "NSMBot"
           git add -- .
           git commit -s -m "Update references"
+          git push -f
