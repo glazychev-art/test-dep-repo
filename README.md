@@ -8,3 +8,4 @@ github.com/networkservicemesh/deployments-k8s/apps/nsc-kernel?ref=f2afb9f5b062a8
 2
 2.1
 3
+4
