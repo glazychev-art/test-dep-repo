@@ -20,4 +20,4 @@ jobs:
           git config --global user.name "NSMBot"
           git add -- .
           git commit -s -m "Update references"
-          git push -f
+          git push
