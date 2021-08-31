@@ -47,7 +47,7 @@ jobs:
         uses: jwalton/gh-find-current-pr@v1.0.2
         id: findPr
         with:
-          sha: ${{ steps.get-pr-sha.outputs.tag }}
+          sha: $(git rev-parse HEAD^)
           github-token: ${{ github.token }}
       - name: Add new file
         working-directory: glazychev-art/test-dep2-repo
