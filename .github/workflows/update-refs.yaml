@@ -1,10 +1,9 @@
 ---
 name: Update references
 on:
-  pull_request:
   push:
     branches:
-      - 'release/**'
+      - main
 jobs:
   update-refs:
     name: Update references
@@ -13,11 +12,7 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: Fetch main
-        run: |
-          git remote -v
-          git fetch --depth=1 origin main
+          ref: main
       - name: Update references
         run: |
           sed -r -i 's/(ref=.*)/ref=${{ github.event.pull_request.head.sha }}/g' `grep 'ref=' -rl *`
