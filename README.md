@@ -1,7 +1,7 @@
 # test-dep-repo
 
 ```bash
-github.com/networkservicemesh/deployments-k8s/apps/nsc-kernel?ref=395c74470042f338220ff092cb8b3db8d22c3ab7
+github.com/networkservicemesh/deployments-k8s/apps/nsc-kernel?ref=892047de32d014dfc8adc0cc1a0ac5fe2ccc28f3
 ```
 
 1
