@@ -33,21 +33,15 @@ jobs:
           path: glazychev-art/test-dep2-repo
           repository: glazychev-art/test-dep2-repo
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
-      - name: Get PR sha
-        working-directory: ${{ github.repository }}
+      - name: Get hash of PR commit
         run: |
-          ls
-          echo ${{ github.sha }}
-          echo '::set-output name=tag::'$(git rev-parse HEAD^)
-        id: get-pr-sha
-      - name: Print PR sha
-        run: |
-          echo ${{ steps.get-pr-sha.outputs.tag }}
+          echo '::set-output name=hash::'$(git rev-parse HEAD^)
+        id: get-pr-hash
       - name: Find merged PR
         uses: jwalton/gh-find-current-pr@v1.0.2
         id: findPr
         with:
-          sha: $(git rev-parse HEAD^)
+          sha: ${{ steps.get-pr-hash.outputs.hash }}
           github-token: ${{ github.token }}
       - name: Add new file
         working-directory: glazychev-art/test-dep2-repo
