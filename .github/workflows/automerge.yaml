@@ -5,7 +5,7 @@ on:
     types:
       - completed
     workflows:
-      - 'Update references'
+      - 'Pull Request on update/* Branch Push'
 jobs:
   build:
     runs-on: ubuntu-latest
