@@ -13,3 +13,4 @@ github.com/networkservicemesh/deployments-k8s/apps/nsc-kernel?ref=f502e207a54fd8
 6
 7
 8
+9
