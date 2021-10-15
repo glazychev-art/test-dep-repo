@@ -20,6 +20,7 @@ jobs:
       - name: Only allow go.mod, go.sum, *.gen.go files
         run: |
           git rev-parse HEAD
+          git rev-parse HEAD^
           find . -type f ! -name '*.yaml' ! -name '*.yml' -exec git diff --exit-code HEAD^ -- {} +
       - name: Merge PR
         uses: ridedott/merge-me-action@master
