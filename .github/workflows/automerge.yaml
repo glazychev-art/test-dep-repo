@@ -22,6 +22,10 @@ jobs:
           git rev-parse HEAD
           git rev-parse HEAD^
           find . -type f ! -name '*.yaml' ! -name '*.yml' -exec git diff --exit-code HEAD^ -- {} +
+      - name: Check out the code
+        uses: actions/checkout@v2
+        with:
+          ref: 'main'
       - name: Merge PR
         uses: ridedott/merge-me-action@master
         with:
