@@ -23,4 +23,4 @@ jobs:
           PULL_REQUEST_BRANCH: "main"
   run-automerge:
     needs: auto-pull-request
-    uses: ${{ github.repository }}/.github/workflows/automerge.yaml@main
+    uses: glazychev-art/test-dep-repo/.github/workflows/automerge.yaml@main
