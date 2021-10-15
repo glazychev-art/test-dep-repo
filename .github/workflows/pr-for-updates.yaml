@@ -21,3 +21,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
           BRANCH_PREFIX: "update/"
           PULL_REQUEST_BRANCH: "main"
+  run-automerge:
+    needs: auto-pull-request
+    uses: ${{ github.repository }}/.github/workflows/automerge.yaml@main
