@@ -19,13 +19,15 @@ jobs:
     steps:
       - name: Check out the code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       - name: Fetch main
         run: |
           git remote -v
           git fetch --depth=1 origin main
       - name: Only allow go.mod, go.sum, *.gen.go files
         run: |
-          find . -type f ! -name '*.yaml' ! -name '*.yml' -exec git diff --exit-code origin/main -- {} +
+          find . -type f ! -name '*.yaml' ! -name '*.yml' -exec git diff --exit-code HEAD^ -- {} +
       - name: Merge PR
         uses: ridedott/merge-me-action@master
         with:
