@@ -19,8 +19,6 @@ jobs:
     steps:
       - name: Check out the code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
       - name: Only allow go.mod, go.sum, *.gen.go files
         run: |
           git rev-parse HEAD
